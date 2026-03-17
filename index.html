@@ -640,6 +640,57 @@
             .comparison-section { padding: 50px 24px; }
             .team-section { padding: 50px 24px; }
         }
+
+        /* ═══════════════════════════════════
+           VIDEO MODAL
+        ═══════════════════════════════════ */
+        .video-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(10, 3, 3, 0.85);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .video-modal-overlay.active {
+            display: flex;
+        }
+        .video-modal-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+        }
+        .video-modal-container video {
+            width: 100%;
+            display: block;
+            max-height: 80vh;
+        }
+        .video-modal-close {
+            position: absolute;
+            top: 12px; right: 12px;
+            width: 36px; height: 36px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background 0.2s;
+        }
+        .video-modal-close:hover {
+            background: rgba(185, 48, 50, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -730,7 +781,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                     Resume
                 </a>
-                <a href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/28d8528b-64ac-4923-b12b-b77a53c6e52b" target="_blank" class="doc-link video">
+                <a href="#" onclick="playVideo('https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/28d8528b-64ac-4923-b12b-b77a53c6e52b');return false;" class="doc-link video">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                     Video Intro
                 </a>
@@ -776,7 +827,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                     Resume
                 </a>
-                <a href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/9cf90f15-ed8c-4949-868a-34034e03196d" target="_blank" class="doc-link video">
+                <a href="#" onclick="playVideo('https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/9cf90f15-ed8c-4949-868a-34034e03196d');return false;" class="doc-link video">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                     Video Intro
                 </a>
@@ -822,7 +873,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                     Resume
                 </a>
-                <a href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/dca821bc-2eeb-4d5b-a728-37fbb890842a" target="_blank" class="doc-link video">
+                <a href="#" onclick="playVideo('https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/dca821bc-2eeb-4d5b-a728-37fbb890842a');return false;" class="doc-link video">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                     Video Intro
                 </a>
@@ -868,7 +919,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                     Resume
                 </a>
-                <a href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/80ec18f0-e0bc-4c79-a6b9-bd3b5c45147b" target="_blank" class="doc-link video">
+                <a href="#" onclick="playVideo('https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/80ec18f0-e0bc-4c79-a6b9-bd3b5c45147b');return false;" class="doc-link video">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                     Video Intro
                 </a>
@@ -914,7 +965,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                     Resume
                 </a>
-                <a href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/e36542bc-e572-487f-aab3-856a3a0511aa" target="_blank" class="doc-link video">
+                <a href="#" onclick="playVideo('https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/e36542bc-e572-487f-aab3-856a3a0511aa');return false;" class="doc-link video">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                     Video Intro
                 </a>
@@ -1050,6 +1101,42 @@
     <div class="footer-line"><strong style="color: var(--teal);">White Glove by Sagan</strong> &middot; Prepared for Caspian Trade, Inc.</div>
     <div class="footer-line">Confidential candidate shortlist &middot; March 2026</div>
 </footer>
+
+<!-- ════════════ VIDEO MODAL ════════════ -->
+<div class="video-modal-overlay" id="videoModal">
+    <div class="video-modal-container">
+        <button class="video-modal-close" id="videoModalClose">&times;</button>
+        <video id="videoPlayer" controls></video>
+    </div>
+</div>
+
+<script>
+(function() {
+    var overlay = document.getElementById('videoModal');
+    var player = document.getElementById('videoPlayer');
+    var closeBtn = document.getElementById('videoModalClose');
+
+    window.playVideo = function(url) {
+        player.src = url;
+        overlay.classList.add('active');
+        player.play();
+    };
+
+    function closeModal() {
+        player.pause();
+        player.src = '';
+        overlay.classList.remove('active');
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+    });
+})();
+</script>
 
 </body>
 </html>
